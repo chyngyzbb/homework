@@ -7,6 +7,16 @@ const btn=document.querySelector('.search-btn')
 const selectContinent=document.querySelector('.select-continent')
 let res=[]
 
+input.addEventListener('keydown',(e)=>{
+    console.log(e.key);
+    if(e.key==="Enter"){
+        axios(`https://restcountries.com/v3.1/name/${input.value}`).then((dat)=>{
+            res=dat.data
+            view(res)
+        })
+    }
+})
+
 select.addEventListener('change',(e)=>{
     console.log(e.target.value);
     let val=e.target.value
