@@ -21,8 +21,9 @@
 //     }, 2000);
 // })
 // promise
-// .then((task)=>console.log(task))
-// .catch((task)=>console.error('...error',task))
+// .then((task)=>console.log(task))         // Успешный болгондо иштейт
+// .catch((task)=>console.error('...error',task))   // Ощибка болгондо иштейт
+// .finally(()=>console.log('Finish!!!'))     //  Экоондотен иштейт
 
 
 // console.log(1);

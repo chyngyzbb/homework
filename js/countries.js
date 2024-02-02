@@ -1,4 +1,14 @@
-// npm -
+///////////////////////////////     30.01.2024,    01.02.2024
+// npm - node package manager
+// axios
+
+
+
+
+
+
+
+
 
 const row=document.querySelector('.row')
 const select=document.querySelector('.select-country')
@@ -19,23 +29,23 @@ input.addEventListener('keydown',(e)=>{
 
 select.addEventListener('change',(e)=>{
     console.log(e.target.value);
-    let val=e.target.value
+    let {value}=e.target
     if(val==='area'){
         axios('https://restcountries.com/v3.1/all').then((tit)=>{
         res=tit.data.sort((a,b)=>b.area-a.area)
         view(res)
     })
-    }else if(val==="population"){
+    }else if(value==="population"){
         axios('https://restcountries.com/v3.1/all').then((tit)=>{
             res=tit.data.sort((a,b)=>b.population-a.population)
             view(res)
         })
-    }else if(val==="A-Z"){
+    }else if(value==="A-Z"){
         axios('https://restcountries.com/v3.1/all').then((tit)=>{
             res=tit.data.sort((a,b)=>b.name.common>a.name.common?-1:1)
             view(res)
         })
-    }else if(val==="Z-A"){
+    }else if(value==="Z-A"){
         axios('https://restcountries.com/v3.1/all').then((tit)=>{
             res=tit.data.sort((a,b)=>b.name.common>a.name.common?1:-1)
             view(res)
