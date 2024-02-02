@@ -1,4 +1,4 @@
-///////////////////////////////     30.01.2024,    01.02.2024
+///////////////////////////////     30.01.2024, 01.02.2024
 // npm - node package manager
 // axios
 
@@ -29,23 +29,23 @@ input.addEventListener('keydown',(e)=>{
 
 select.addEventListener('change',(e)=>{
     console.log(e.target.value);
-    let {value}=e.target
+    let val=e.target.value
     if(val==='area'){
         axios('https://restcountries.com/v3.1/all').then((tit)=>{
         res=tit.data.sort((a,b)=>b.area-a.area)
         view(res)
     })
-    }else if(value==="population"){
+    }else if(val==="population"){
         axios('https://restcountries.com/v3.1/all').then((tit)=>{
             res=tit.data.sort((a,b)=>b.population-a.population)
             view(res)
         })
-    }else if(value==="A-Z"){
+    }else if(val==="A-Z"){
         axios('https://restcountries.com/v3.1/all').then((tit)=>{
             res=tit.data.sort((a,b)=>b.name.common>a.name.common?-1:1)
             view(res)
         })
-    }else if(value==="Z-A"){
+    }else if(val==="Z-A"){
         axios('https://restcountries.com/v3.1/all').then((tit)=>{
             res=tit.data.sort((a,b)=>b.name.common>a.name.common?1:-1)
             view(res)
