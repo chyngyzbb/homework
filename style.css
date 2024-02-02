@@ -1,8 +1,14 @@
 .header{
+    
+    position: fixed;
+    width: 100%;
     text-align: center;
     padding: 60px ;
-    background: #3e446e;
+    background: #3e446eef;
     border: none;
+    display: flex;
+    justify-content: space-around;
+    color: aliceblue;
 }
 .btn-area{
     /* margin-top: 30px; */
@@ -10,10 +16,28 @@
 }
 .row{
     background: gray;
+    padding-top: 200px;
+    text-align: center;
 }
 .bg{
     background: wheat;
 }
 h2,h3,h5,p{
     text-align: center;
+}
+.select-country,.select-continent{
+    width: 120px;
+    border: none;
+    padding: 3px;
+    border-radius: 10px;
+}
+.nav-bar{
+    display: flex;
+    gap: 14px;
+}
+.search-input{
+    width: 150px;
+    border: none;
+    padding:15px;
+    border-radius: 10px;
 }

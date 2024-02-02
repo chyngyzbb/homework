@@ -6,6 +6,7 @@
 // resolved - fulfilled   -> успешно
 // rejected              -> ощибка "error"
 
+// 
 
 // let status=400
 // const promise=new Promise((resolved,rejected)=>{
