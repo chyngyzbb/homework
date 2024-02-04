@@ -4,12 +4,6 @@
 
 
 
-
-
-
-
-
-
 const row=document.querySelector('.row')
 const select=document.querySelector('.select-country')
 const input=document.querySelector('.search-input')
@@ -25,6 +19,13 @@ input.addEventListener('keydown',(e)=>{
             view(res)
         })
     }
+})
+
+input.addEventListener('input',(e)=>{
+    axios(`https://restcountries.com/v3.1/name/${e.target.value}`).then((dat)=>{
+        res=dat.data
+        view(res)
+    })
 })
 
 select.addEventListener('change',(e)=>{
@@ -56,33 +57,82 @@ select.addEventListener('change',(e)=>{
 })
 
 selectContinent.addEventListener('change',(e)=>{
+    console.log(e.target.value);
     let val=e.target.value
-    if(val==="Americas"){
-        axios(`https://restcountries.com/v3.1/region/${val}`).then((res)=>{
-            view(res.data)
-        })
+    if(val==='Americas'){
+        axios('https://restcountries.com/v3.1/all').then((tit)=>{
+        res=tit.data.filter((el)=>(
+             el.region==="Americas"
+        ))
+        view(res)
+    })
     }else if(val==="Africa"){
-        axios(`https://restcountries.com/v3.1/region/${val}`).then((res)=>{
-            view(res.data)
-        }) 
+        axios('https://restcountries.com/v3.1/all').then((tit)=>{
+            res=tit.data.filter((el)=>{
+                return    el.region==="Africa"
+        })
+            view(res)
+        })
     }else if(val==="Asia"){
-        axios(`https://restcountries.com/v3.1/region/${val}`).then((res)=>{
-            view(res.data)
-        }) 
+        axios('https://restcountries.com/v3.1/all').then((tit)=>{
+            res=tit.data.filter((el)=>{
+                return    el.region==="Asia"
+        })
+            view(res)
+        })
     }else if(val==="Europe"){
-        axios(`https://restcountries.com/v3.1/region/${val}`).then((res)=>{
-            view(res.data)
-        }) 
+        axios('https://restcountries.com/v3.1/all').then((tit)=>{
+            res=tit.data.filter((el)=>{
+                return    el.region==="Europe"
+        })
+            view(res)
+        })
     }else if(val==="Oceania"){
-        axios(`https://restcountries.com/v3.1/region/${val}`).then((res)=>{
-            view(res.data)
-        }) 
+        axios('https://restcountries.com/v3.1/all').then((tit)=>{
+            res=tit.data.filter((el)=>{
+                return    el.region==="Oceania"
+        })
+            view(res)
+        })
     }else if(val==="Antarctic"){
-        axios(`https://restcountries.com/v3.1/region/${val}`).then((res)=>{
-            view(res.data)
-        }) 
+        axios('https://restcountries.com/v3.1/all').then((tit)=>{
+            res=tit.data.filter((el)=>{
+                return    el.region==="Antarctic"
+        })
+            view(res)
+        })
     }
+
 })
+
+// selectContinent.addEventListener('change',(e)=>{
+//     let val=e.target.value
+//     if(val==="Americas"){
+//         axios(`https://restcountries.com/v3.1/region/${val}`).then((res)=>{
+//             view(res.data)
+//         })
+//     }else if(val==="Africa"){
+//         axios(`https://restcountries.com/v3.1/region/${val}`).then((res)=>{
+//             view(res.data)
+//         }) 
+//     }else if(val==="Asia"){
+//         axios(`https://restcountries.com/v3.1/region/${val}`).then((res)=>{
+//             view(res.data)
+//         }) 
+//     }else if(val==="Europe"){
+//         axios(`https://restcountries.com/v3.1/region/${val}`).then((res)=>{
+//             view(res.data)
+//         }) 
+//     }else if(val==="Oceania"){
+//         axios(`https://restcountries.com/v3.1/region/${val}`).then((res)=>{
+//             view(res.data)
+//         }) 
+//     }else if(val==="Antarctic"){
+//         axios(`https://restcountries.com/v3.1/region/${val}`).then((res)=>{
+//             view(res.data)
+//         }) 
+//     }
+// })
 
 
 function view(ata){
